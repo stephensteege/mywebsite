@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Stephen Steege | Portfolio</title>
-  <meta name="description" content="Professional portfolio of Stephen Steege - Projects, Education, and Career." />
+  <meta name="description" content="Professional portfolio of Stephen Steege - Software Engineer & Manager." />
 
   <style>
     :root {
@@ -14,9 +14,9 @@
       --line: rgba(255, 255, 255, .08);
       --txt: #f8fafc;
       --muted: #94a3b8;
-      --accent-p: #8b5cf6; /* Purple */
-      --accent-c: #06b6d4; /* Cyan */
-      --accent-g: #22c55e; /* Green */
+      --accent-p: #8b5cf6;
+      --accent-c: #06b6d4;
+      --accent-brand: #ff1c52; /* Updated to your specific hex color */
       --r: 20px;
       --ease: cubic-bezier(.4, 0, .2, 1);
     }
@@ -38,7 +38,6 @@
 
     .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    /* Nav */
     header {
       position: sticky; top: 0; z-index: 100;
       backdrop-filter: blur(12px);
@@ -47,7 +46,16 @@
     }
     nav { height: 70px; display: flex; align-items: center; justify-content: space-between; }
     .logo-group { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 18px; text-decoration: none; color: inherit; }
-    .logo-box { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent-p), var(--accent-c)); border-radius: 8px; }
+    
+    .logo-icon { 
+        font-family: monospace; 
+        color: var(--accent-brand); /* Applied #ff1c52 here */
+        background: var(--card); 
+        padding: 4px 8px; 
+        border-radius: 6px; 
+        border: 1px solid var(--line);
+        font-size: 14px;
+    }
     
     .nav-links { display: flex; gap: 4px; }
     .nav-links a { 
@@ -56,7 +64,6 @@
     }
     .nav-links a:hover { color: var(--txt); background: var(--card); }
 
-    /* Hero Section */
     .hero { padding: 60px 0 40px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; }
     @media (max-width: 850px) { .hero { grid-template-columns: 1fr; padding: 40px 0; } }
 
@@ -68,25 +75,30 @@
       display: flex; flex-direction: column; justify-content: center;
     }
 
-    .kicker { color: var(--accent-c); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+    .kicker { color: var(--accent-brand); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
     h1 { font-size: clamp(36px, 6vw, 56px); margin: 0 0 20px; letter-spacing: -2px; line-height: 1.1; }
     .sub { color: var(--muted); font-size: 18px; margin-bottom: 32px; }
 
     .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      padding: 12px 24px; border-radius: 12px; font-weight: 600; text-decoration: none; transition: 0.2s;
-    }
+    .btn { padding: 12px 24px; border-radius: 12px; font-weight: 600; text-decoration: none; transition: 0.2s; }
     .btn-p { background: var(--txt); color: var(--bg0); }
     .btn-p:hover { transform: translateY(-2px); filter: brightness(0.9); }
     .btn-s { background: var(--card); color: var(--txt); border: 1px solid var(--line); }
 
-    /* Stats Grid / Tiles */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .tile { background: var(--card); border: 1px solid var(--line); padding: 20px; border-radius: 16px; }
-    .tile label { font-size: 11px; text-transform: uppercase; color: var(--muted); font-weight: 700; display: block; margin-bottom: 4px; }
+    .tile { 
+      background: var(--card); 
+      border: 1px solid var(--line); 
+      padding: 20px; 
+      border-radius: 16px; 
+      text-decoration: none; 
+      color: inherit; 
+      transition: 0.2s;
+    }
+    .tile:hover { background: rgba(255,255,255,0.08); border-color: var(--accent-c); }
+    .tile label { font-size: 11px; text-transform: uppercase; color: var(--muted); font-weight: 700; display: block; margin-bottom: 4px; cursor: pointer; }
     .tile .val { font-size: 16px; font-weight: 600; }
 
-    /* Section Styles */
     section { padding: 40px 0; }
     .section-head { margin-bottom: 24px; }
     .section-head h2 { font-size: 24px; letter-spacing: -0.5px; margin: 0; }
@@ -101,8 +113,11 @@
     .card .tag { font-size: 10px; font-weight: 800; text-transform: uppercase; background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
     .card h3 { margin: 12px 0 8px; font-size: 18px; }
     .card p { color: var(--muted); font-size: 14px; margin: 0; }
+    .card ul { padding-left: 18px; color: var(--muted); font-size: 13px; margin-top: 10px; }
 
-    footer { padding: 60px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; }
+    footer { padding: 60px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-links a { color: var(--muted); text-decoration: none; margin-left: 16px; }
+    .footer-links a:hover { color: var(--txt); }
   </style>
 </head>
 
@@ -111,13 +126,14 @@
     <div class="wrap">
       <nav>
         <a href="#" class="logo-group">
-          <div class="logo-box"></div>
+          <div class="logo-icon">&lt;/&gt;</div>
           Stephen Steege
         </a>
         <div class="nav-links">
-          <a href="#career">Career</a>
+          <a href="#career">Experience</a>
           <a href="#education">Education</a>
           <a href="#projects">Projects</a>
+          <a href="https://linkedin.com/in/stephensteege" target="_blank">LinkedIn</a>
         </div>
       </nav>
     </div>
@@ -126,46 +142,58 @@
   <main class="wrap">
     <section class="hero">
       <div class="panel">
-        <div class="kicker">Available for Collaboration</div>
-        <h1>Career, Projects <br>& Learning.</h1>
-        <p class="sub">Personal portfolio documenting professional growth, academic milestones, and technical experiments.</p>
+        <div class="kicker">CS Undergraduate & Leader</div>
+        <h1>Technologically Driven <br>Software Engineering.</h1>
+        <p class="sub">Technologically-driven undergraduate with a strong managerial background and academic excellence in Computer Science.</p>
         <div class="btn-group">
           <a href="#projects" class="btn btn-p">View Projects</a>
-          <a href="mailto:stephen@stephensteege.xyz" class="btn btn-s">Get in touch</a>
+          <a href="mailto:stephensteege@gmail.com" class="btn btn-s">Get in touch</a>
         </div>
       </div>
 
       <div class="info-grid">
+        <a href="Resume_FA24_Final.pdf" class="tile" target="_blank">
+          <label>View Document</label>
+          <div class="val">📄 Official Resume</div>
+        </a>
         <div class="tile">
-          <label>Based in</label>
-          <div class="val">Lakeland, FL</div>
-        </div>
-        <div class="tile">
-          <label>Focus</label>
-          <div class="val">IT & Infrastructure</div>
+          <label>Location</label>
+          <div class="val">Auburndale, FL</div>
         </div>
         <div class="tile" style="grid-column: span 2;">
-          <label>Current Status</label>
-          <div class="val">Managing custom server infrastructure and exploring JDM automotive engineering.</div>
+          <label>Academic Status</label>
+          <div class="val">B.S. Computer Science at Florida Polytechnic University.</div>
+        </div>
+        <div class="tile" style="grid-column: span 2;">
+          <label>Leadership Focus</label>
+          <div class="val">Proven track record of leading teams and boosting productivity.</div>
         </div>
       </div>
     </section>
 
     <section id="career">
       <div class="section-head">
-        <h2>Career Path</h2>
-        <p>Professional experience and roles held.</p>
+        <h2>Experience</h2>
+        <p>Professional roles and managerial achievements.</p>
       </div>
       <div class="card-list">
         <div class="card">
-          <span class="tag">Present</span>
-          <h3>Independent Technical Consultant</h3>
-          <p>Specializing in server PC hardware optimization, troubleshooting, and custom network solutions.</p>
+          <span class="tag">Dec 2023 – Present</span>
+          <h3>Part Sales Manager | AutoZone</h3>
+          <ul>
+            <li>Managed inventory to reduce discrepancies and improve stock availability.</li>
+            <li>Conducted cash handling and register closeout at the end of business days.</li>
+            <li>Inspected parts for defects and managed quality control.</li>
+          </ul>
         </div>
         <div class="card">
-          <span class="tag">Past</span>
-          <h3>Technical Projects</h3>
-          <p>Managed various freelance operations involving system upgrades and technical support.</p>
+          <span class="tag">Jul 2021 – Feb 2024</span>
+          <h3>Shift Manager | Wendy's</h3>
+          <ul>
+            <li>Trained 15+ new employees, reducing onboarding time by 25%.</li>
+            <li>Boosted team productivity by 20% through performance tracking.</li>
+            <li>Consistently achieved sales targets and multi-tasked in high-volume environments.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -173,18 +201,37 @@
     <section id="education">
       <div class="section-head">
         <h2>Education</h2>
-        <p>Academic background and certifications.</p>
+        <p>Academic history and technical certifications.</p>
       </div>
       <div class="card-list">
         <div class="card">
-          <span class="tag">Engineering</span>
-          <h3>Discrete Mathematics</h3>
-          <p>Focused on graph theory, complete graphs, and Hamiltonian paths for system logic.</p>
+          <span class="tag">Exp. 05/2026</span>
+          <h3>Florida Polytechnic University</h3>
+          <p>Software Engineering Concentration.</p>
+          <ul>
+            <li>Data Analytics Certification received.</li>
+            <li>Advanced OOP in C++ and Python for Data Analytics.</li>
+          </ul>
         </div>
         <div class="card">
-          <span class="tag">IT Hardware</span>
-          <h3>PC Systems & Infrastructure</h3>
-          <p>Deep study into motherboard architecture, CPU performance, and SSD storage technologies.</p>
+          <span class="tag">Associate Degree</span>
+          <h3>Polk State College</h3>
+          <p>Associates In Liberal Arts, Graduated Honor Roll.</p>
+          <ul>
+            <li>National Honor Society Member.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="tag">Professional Tools</span>
+          <h3>Technical Certifications</h3>
+          <ul>
+            <li>Microsoft Word</li>
+            <li>Microsoft Excel</li>
+            <li>Microsoft Outlook</li>
+            <li>Microsoft PowerPoint</li>
+            <li>Intuit QuickBooks</li>
+            <li>FPU Coding for Data Analytics</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -192,30 +239,38 @@
     <section id="projects">
       <div class="section-head">
         <h2>Projects</h2>
-        <p>Technical builds and personal interests.</p>
+        <p>Automotive software and systems infrastructure.</p>
       </div>
       <div class="card-list">
-        <a href="#" class="card">
-          <span class="tag">Automotive</span>
-          <h3>Lexus SC300 Manual Swap</h3>
-          <p>A full transmission conversion and restoration project on a 1996 SC300 chassis.</p>
-        </a>
-        <a href="#" class="card">
-          <span class="tag">Servers</span>
-          <h3>Minecraft Infrastructure</h3>
-          <p>Global domain management and server-side optimization for multiplayer gaming.</p>
-        </a>
-        <a href="#" class="card">
-          <span class="tag">Hardware</span>
-          <h3>Custom Server Rack</h3>
-          <p>Building high-performance PC hardware for localized hosting and data management.</p>
-        </a>
+        <div class="card">
+          <span class="tag">Web Platform</span>
+          <h3>🚗 CarView</h3>
+          <p>VIN-based vehicle information platform providing accurate insights into specs, trims, and engine data via API integration.</p>
+        </div>
+        <div class="card">
+          <span class="tag">iOS Application</span>
+          <h3>📱 CarLine</h3>
+          <p>Mobile app utilizing iPhone sensors to help enthusiasts diagnose steering pull and alignment trends.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Engineering</span>
+          <h3>⚙️ Lexus SC300 Manual Swap</h3>
+          <p>Full manual transmission conversion and chassis restoration project for a 1996 SC300.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Infrastructure</span>
+          <h3>⛏️ Minecraft Server Logic</h3>
+          <p>Managing global domain DNS (stephensteege.xyz) and high-performance server-side optimizations.</p>
+        </div>
       </div>
     </section>
 
     <footer>
-      <div>&copy; <span id="year"></span> Stephen Steege</div>
-      <div style="font-family: monospace; letter-spacing: 1px;">STEPHENSTEEGE.XYZ</div>
+      <div>&copy; <span id="year"></span> Stephen Steege | 863-440-1242</div>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/stephensteege" target="_blank">LinkedIn</a>
+        <a href="mailto:stephensteege@gmail.com">Email</a>
+      </div>
     </footer>
   </main>
 
